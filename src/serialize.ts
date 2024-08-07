@@ -129,12 +129,12 @@ export default function serialize(
       if (chunk.bold) {
         children = retainWhitespaceAndFormat(children, '**');
       }
-      
-			if (chunk.underline) {
+
+      if (chunk.underline) {
         children = retainWhitespaceAndFormat(children, '__');
       }
-      
-			if (chunk.spoiler) {
+
+      if (chunk.spoiler) {
         children = retainWhitespaceAndFormat(children, '||');
       }
 

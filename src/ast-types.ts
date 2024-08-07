@@ -72,8 +72,8 @@ export const defaultNodeTypes: NodeTypes = {
 export interface LeafType {
   text: string;
   strikeThrough?: boolean;
-	underline?: boolean;
-	spoiler?: boolean;
+  underline?: boolean;
+  spoiler?: boolean;
   bold?: boolean;
   italic?: boolean;
   code?: boolean;
