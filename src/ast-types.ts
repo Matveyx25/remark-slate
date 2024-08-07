@@ -14,10 +14,10 @@ export interface NodeTypes {
     5: string;
     6: string;
   };
-  italic_mark: string;
+  emphasis_mark: string;
   underline_mark: string;
   spoiler_mark: string;
-  bold_mark: string;
+  strong_mark: string;
   delete_mark: string;
   inline_code_mark: string;
   thematic_break: string;
@@ -34,8 +34,8 @@ export type MdastNodeType =
   | 'blockquote'
   | 'code'
   | 'html'
-  | 'italic'
-  | 'bold'
+  | 'emphasis'
+  | 'strong'
   | 'delete'
   | 'inlineCode'
   | 'thematicBreak'
@@ -59,8 +59,8 @@ export const defaultNodeTypes: NodeTypes = {
     5: 'heading_five',
     6: 'heading_six',
   },
-  italic_mark: 'italic',
-  bold_mark: 'bold',
+  emphasis_mark: 'italic',
+  strong_mark: 'bold',
   underline_mark: 'underline',
   spoiler_mark: 'spoiler',
   delete_mark: 'strikeThrough',
@@ -74,8 +74,8 @@ export interface LeafType {
   strikeThrough?: boolean;
   underline?: boolean;
   spoiler?: boolean;
-  bold?: boolean;
   italic?: boolean;
+  bold?: boolean;
   code?: boolean;
   parentType?: string;
 }
@@ -106,8 +106,8 @@ export interface InputNodeTypes {
     5: string;
     6: string;
   };
-  italic_mark: string;
-  bold_mark: string;
+  emphasis_mark: string;
+  strong_mark: string;
   underline_mark: string;
   spoiler_mark: string;
   delete_mark: string;
@@ -208,7 +208,7 @@ export type ThematicBreakNode<T extends InputNodeTypes> = {
 };
 
 export type ItalicNode<T extends InputNodeTypes> = {
-  [K in T['italic_mark']]: true;
+  [K in T['emphasis_mark']]: true;
 } & {
   children: TextNode;
 };

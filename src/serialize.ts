@@ -130,20 +130,20 @@ export default function serialize(
         children = retainWhitespaceAndFormat(children, '**');
       }
 
-      if (chunk.underline) {
-        children = retainWhitespaceAndFormat(children, '__');
-      }
-
-      if (chunk.spoiler) {
-        children = retainWhitespaceAndFormat(children, '||');
-      }
-
       if (chunk.italic) {
-        children = retainWhitespaceAndFormat(children, '*');
+        children = retainWhitespaceAndFormat(children, '_');
       }
 
       if (chunk.strikeThrough) {
         children = retainWhitespaceAndFormat(children, '~~');
+      }
+
+      if (chunk.underline) {
+        children = retainWhitespaceAndFormat(children, '++');
+      }
+
+      if (chunk.spoiler) {
+        children = retainWhitespaceAndFormat(children, '||');
       }
 
       if (chunk.code) {

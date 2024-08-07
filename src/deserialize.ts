@@ -96,15 +96,15 @@ export default function deserialize<T extends InputNodeTypes>(
       }
       return { type: 'paragraph', children: [{ text: node.value || '' }] };
 
-    case 'italic':
+    case 'emphasis':
       return {
-        [types.italic_mark as string]: true,
+        [types.emphasis_mark as string]: true,
         ...forceLeafNode(children as Array<TextNode>),
         ...persistLeafFormats(children as Array<MdastNode>),
       } as unknown as ItalicNode<T>;
-    case 'bold':
+    case 'strong':
       return {
-        [types.bold_mark as string]: true,
+        [types.strong_mark as string]: true,
         ...forceLeafNode(children as Array<TextNode>),
         ...persistLeafFormats(children as Array<MdastNode>),
       };
@@ -150,7 +150,7 @@ const forceLeafNode = (children: Array<TextNode>) => ({
 
 // This function is will take any unknown keys, and bring them up a level
 // allowing leaf nodes to have many different formats at once
-// for example, bold and italic on the same node
+// for example, strong and emphasis on the same node
 function persistLeafFormats(
   children: Array<MdastNode>
 ): Omit<MdastNode, 'children' | 'type' | 'text'> {
