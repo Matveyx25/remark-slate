@@ -55,7 +55,7 @@ export default {
           },
         },
         {
-          type: 'emphasis',
+          type: 'italic',
           children: [
             {
               type: 'text',
@@ -167,7 +167,7 @@ export default {
               type: 'paragraph',
               children: [
                 {
-                  type: 'strong',
+                  type: 'bold',
                   children: [
                     {
                       type: 'text',

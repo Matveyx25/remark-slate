@@ -14,8 +14,10 @@ export interface NodeTypes {
     5: string;
     6: string;
   };
-  emphasis_mark: string;
-  strong_mark: string;
+  italic_mark: string;
+  underline_mark: string;
+  spoiler_mark: string;
+  bold_mark: string;
   delete_mark: string;
   inline_code_mark: string;
   thematic_break: string;
@@ -32,11 +34,13 @@ export type MdastNodeType =
   | 'blockquote'
   | 'code'
   | 'html'
-  | 'emphasis'
-  | 'strong'
+  | 'italic'
+  | 'bold'
   | 'delete'
   | 'inlineCode'
   | 'thematicBreak'
+  | 'underline'
+  | 'spoiler'
   | 'text';
 
 export const defaultNodeTypes: NodeTypes = {
@@ -55,8 +59,10 @@ export const defaultNodeTypes: NodeTypes = {
     5: 'heading_five',
     6: 'heading_six',
   },
-  emphasis_mark: 'italic',
-  strong_mark: 'bold',
+  italic_mark: 'italic',
+  bold_mark: 'bold',
+  underline_mark: 'underline',
+  spoiler_mark: 'spoiler',
   delete_mark: 'strikeThrough',
   inline_code_mark: 'code',
   thematic_break: 'thematic_break',
@@ -66,6 +72,8 @@ export const defaultNodeTypes: NodeTypes = {
 export interface LeafType {
   text: string;
   strikeThrough?: boolean;
+	underline?: boolean;
+	spoiler?: boolean;
   bold?: boolean;
   italic?: boolean;
   code?: boolean;
@@ -98,8 +106,10 @@ export interface InputNodeTypes {
     5: string;
     6: string;
   };
-  emphasis_mark: string;
-  strong_mark: string;
+  italic_mark: string;
+  bold_mark: string;
+  underline_mark: string;
+  spoiler_mark: string;
   delete_mark: string;
   inline_code_mark: string;
   thematic_break: string;
@@ -198,13 +208,23 @@ export type ThematicBreakNode<T extends InputNodeTypes> = {
 };
 
 export type ItalicNode<T extends InputNodeTypes> = {
-  [K in T['emphasis_mark']]: true;
+  [K in T['italic_mark']]: true;
 } & {
   children: TextNode;
 };
 
 export type BoldNode = {
   bold: true;
+  children: TextNode;
+};
+
+export type UnderlineNode = {
+  underline: true;
+  children: TextNode;
+};
+
+export type SpoilerNode = {
+  spoiler: true;
   children: TextNode;
 };
 
@@ -230,6 +250,8 @@ export type DeserializedNode<T extends InputNodeTypes> =
   | InlineCodeMarkNode<T>
   | ThematicBreakNode<T>
   | ItalicNode<T>
+  | UnderlineNode
+  | SpoilerNode
   | BoldNode
   | StrikeThoughNode
   | InlineCodeNode

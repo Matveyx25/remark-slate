@@ -129,9 +129,17 @@ export default function serialize(
       if (chunk.bold) {
         children = retainWhitespaceAndFormat(children, '**');
       }
+      
+			if (chunk.underline) {
+        children = retainWhitespaceAndFormat(children, '__');
+      }
+      
+			if (chunk.spoiler) {
+        children = retainWhitespaceAndFormat(children, '||');
+      }
 
       if (chunk.italic) {
-        children = retainWhitespaceAndFormat(children, '_');
+        children = retainWhitespaceAndFormat(children, '*');
       }
 
       if (chunk.strikeThrough) {

@@ -13,6 +13,19 @@ Object {
 }
 `;
 
+exports[`Deserialize a complex leaf node with bold and italic 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "bold": true,
+      "italic": true,
+      "text": "bold and italic",
+    },
+  ],
+  "type": "paragraph",
+}
+`;
+
 exports[`Deserialize a complex leaf node with delete and bold 1`] = `
 Object {
   "children": Array [
@@ -40,6 +53,19 @@ Object {
 `;
 
 exports[`Deserialize a complex leaf node with emphasis and bold 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "bold": true,
+      "italic": true,
+      "text": "italic and bold",
+    },
+  ],
+  "type": "paragraph",
+}
+`;
+
+exports[`Deserialize a complex leaf node with italic and bold 1`] = `
 Object {
   "children": Array [
     Object {

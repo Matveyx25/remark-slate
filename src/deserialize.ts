@@ -96,15 +96,27 @@ export default function deserialize<T extends InputNodeTypes>(
       }
       return { type: 'paragraph', children: [{ text: node.value || '' }] };
 
-    case 'emphasis':
+    case 'italic':
       return {
-        [types.emphasis_mark as string]: true,
+        [types.italic_mark as string]: true,
         ...forceLeafNode(children as Array<TextNode>),
         ...persistLeafFormats(children as Array<MdastNode>),
       } as unknown as ItalicNode<T>;
-    case 'strong':
+    case 'bold':
       return {
-        [types.strong_mark as string]: true,
+        [types.bold_mark as string]: true,
+        ...forceLeafNode(children as Array<TextNode>),
+        ...persistLeafFormats(children as Array<MdastNode>),
+      };
+    case 'underline':
+      return {
+        [types.underline_mark as string]: true,
+        ...forceLeafNode(children as Array<TextNode>),
+        ...persistLeafFormats(children as Array<MdastNode>),
+      };
+    case 'spoiler':
+      return {
+        [types.spoiler_mark as string]: true,
         ...forceLeafNode(children as Array<TextNode>),
         ...persistLeafFormats(children as Array<MdastNode>),
       };

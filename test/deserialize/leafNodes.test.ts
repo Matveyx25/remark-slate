@@ -1,15 +1,15 @@
 import { deserialize } from '../../src';
 
-it('Deserialize a complex leaf node with bold and emphasis', () => {
+it('Deserialize a complex leaf node with bold and italic', () => {
   expect(
     deserialize({
       type: 'paragraph',
       children: [
         {
-          type: 'strong',
+          type: 'bold',
           children: [
             {
-              type: 'emphasis',
+              type: 'italic',
               children: [
                 {
                   value: 'bold and italic',
@@ -23,16 +23,16 @@ it('Deserialize a complex leaf node with bold and emphasis', () => {
   ).toMatchSnapshot();
 });
 
-it('Deserialize a complex leaf node with emphasis and bold', () => {
+it('Deserialize a complex leaf node with italic and bold', () => {
   expect(
     deserialize({
       type: 'paragraph',
       children: [
         {
-          type: 'emphasis',
+          type: 'italic',
           children: [
             {
-              type: 'strong',
+              type: 'bold',
               children: [
                 {
                   value: 'italic and bold',
@@ -55,7 +55,7 @@ it('Deserialize a complex leaf node with delete and bold', () => {
           type: 'delete',
           children: [
             {
-              type: 'strong',
+              type: 'bold',
               children: [
                 {
                   value: 'strikethrough and bold',
@@ -78,7 +78,7 @@ it('Deserialize a complex leaf node with delete and italic', () => {
           type: 'delete',
           children: [
             {
-              type: 'emphasis',
+              type: 'italic',
               children: [
                 {
                   value: 'strikethrough and italic',
@@ -98,7 +98,7 @@ it('Deserialize a leaf node with just italic', () => {
       type: 'paragraph',
       children: [
         {
-          type: 'emphasis',
+          type: 'italic',
           children: [
             {
               value: 'Italic text',
@@ -116,7 +116,7 @@ it('Deserialize a leaf node with just bold', () => {
       type: 'paragraph',
       children: [
         {
-          type: 'strong',
+          type: 'bold',
           children: [
             {
               value: 'bold text',
@@ -170,10 +170,10 @@ it('Handles cases where leafs have metadata attached', () => {
           type: 'paragraph',
           children: [
             {
-              type: 'strong',
+              type: 'bold',
               children: [
                 {
-                  type: 'emphasis',
+                  type: 'italic',
                   children: [
                     {
                       type: 'delete',
