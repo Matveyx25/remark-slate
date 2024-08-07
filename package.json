@@ -1,5 +1,5 @@
 {
-  "name": "@Matveyx25/remark-slate",
+  "name": "@st.matthew/remark-slate",
   "version": "1.8.7",
   "description": "remark plugin to compile Markdown to a slate compatible object",
   "license": "MIT",
