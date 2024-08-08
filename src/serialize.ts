@@ -139,7 +139,7 @@ export default function serialize(
       }
 
       if (chunk.underline) {
-        children = retainWhitespaceAndFormat(children, '__');
+        children = retainWhitespaceAndFormat(children, '++');
       }
 
       if (chunk.spoiler) {
