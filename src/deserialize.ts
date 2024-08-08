@@ -117,7 +117,7 @@ export default function deserialize<T extends InputNodeTypes>(
     case 'spoiler':
       return {
         [types.spoiler_mark as string]: true,
-        text: node.value,
+        ...forceLeafNode(children as Array<TextNode>),
         ...persistLeafFormats(children as Array<MdastNode>),
       };
     case 'delete':
