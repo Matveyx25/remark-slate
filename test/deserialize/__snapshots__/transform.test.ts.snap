@@ -191,6 +191,13 @@ Object {
 }
 `;
 
+exports[`Deserialize spoiler with underline 1`] = `
+Object {
+  "text": undefined,
+  "underline": true,
+}
+`;
+
 exports[`inserts empty text block if no children are given 1`] = `
 Object {
   "children": Array [

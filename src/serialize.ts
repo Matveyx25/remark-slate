@@ -131,7 +131,7 @@ export default function serialize(
       }
 
       if (chunk.italic) {
-        children = retainWhitespaceAndFormat(children, '_');
+        children = retainWhitespaceAndFormat(children, '*');
       }
 
       if (chunk.strikeThrough) {
@@ -139,7 +139,7 @@ export default function serialize(
       }
 
       if (chunk.underline) {
-        children = retainWhitespaceAndFormat(children, '++');
+        children = retainWhitespaceAndFormat(children, '__');
       }
 
       if (chunk.spoiler) {
