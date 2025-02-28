@@ -208,7 +208,7 @@ export default function serialize(
       }`;
 
     case nodeTypes.paragraph:
-      return `${children}\n`;
+      return children === BREAK_TAG ? children : `${children}\n`;
 
     case nodeTypes.thematic_break:
       return `---\n`;
