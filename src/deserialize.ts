@@ -87,11 +87,11 @@ export default function deserialize<T extends InputNodeTypes>(
       } as CodeBlockNode<T>;
 
     case 'html':
-      if (node.value?.includes('<br>')) {
+      if (node.value?.includes('\n')) {
         return {
           break: true,
           type: types.paragraph,
-          children: [{ text: node.value?.replace(/<br>/g, '') || '' }],
+          children: [{ text: node.value?.replace(/<br>/g, '\n') || '' }],
         } as ParagraphNode<T>;
       }
       return { type: 'paragraph', children: [{ text: node.value || '' }] };
